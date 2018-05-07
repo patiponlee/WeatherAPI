@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
+import React,{ Component } from "react";
 import logo from './logo.svg';
+import Title from "./components/title";
+import Form from "./components/form";
+import Weather from "./components/weather";
+import {Jumbotron,Image,Grid} from 'react-bootstrap';
 import './App.css';
-import Form from './components/form.js';
-import Title from './components/title.js'
-import Weather from './components/weather.js'
-import { Jumbotron ,Grid ,Image } from 'react-bootstrap';
 
-const API_KEY = "b4affba98eb9e8634675f437f411d686"
+const API_KEY = "b4affba98eb9e8634675f437f411d686";
 
 class App extends Component {
-  state={
+  state = {
     lat: undefined,
     lon: undefined,
     city: undefined,
@@ -21,7 +21,7 @@ class App extends Component {
   }
   getWeather = async (e) => {
     const city = e.target.elements.city.value;
-    const country = e.target.elements .country.value;
+    const country = e.target.elements.country.value;
     e.preventDefault();
     const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=metric`);
     const data = await api_call.json();
@@ -77,6 +77,6 @@ class App extends Component {
       </div>
     );
   }
-}
+};
 
 export default App;
